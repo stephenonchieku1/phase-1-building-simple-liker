@@ -12,17 +12,17 @@ for (const like of heart) {
     mimicServerCall("https://moringaschool.instructure.com/login/canvas")
       .then(() => {
         if (like.innerText === EMPTY_HEART) {
-          like.innerText = FULL_HEART;
+          like.innerhtml = FULL_HEART;
           like.className = "";
         } else {
-          like.innerText = EMPTY_HEART;
+          like.innerHTML = EMPTY_HEART;
           like.className = "activated-heart";
         }
       })
       .catch((error) => {
         const modal = document.getElementById("modal");
         modal.className = "";
-        modal.innerText = error;
+        modal.innerHTML = error;
         setTimeout(() => (modal.className = "hidden"), 3000);
       });
   });
